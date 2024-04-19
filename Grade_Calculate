@@ -1,0 +1,65 @@
+package Student;
+
+import java.util.Scanner;
+
+public class GradeCalc {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Enter total number of subjects 
+        System.out.println("Enter the total number of subjects: ");
+        int totalSubjects = sc.nextInt();
+        
+        // Calculate total marks
+        int totalMarks = 0;
+        
+        for(int i = 1; i <= totalSubjects; i++) {
+            System.out.println("Enter Marks for Subject " + i + " (out of 100): ");
+            int marks = sc.nextInt();
+            
+            // Condition for entered marks between 0 to 100
+            while(marks < 0 || marks > 100) {
+                System.out.println("Invalid Marks. Please enter marks between 0 & 100"); 
+                System.out.println("Enter Marks for Subject " + i + " (out of 100): "); 
+                marks = sc.nextInt();
+            }
+            totalMarks += marks;
+        }
+        
+        System.out.println("Student Result: ");
+        System.out.println("Total Marks obtained in all subjects: " + totalMarks); 
+        
+        
+        int Average = totalMarks/totalSubjects;
+        System.out.println("Average percentage: "+ Average);
+        
+        if(Average >= 90) {
+        	 System.out.println("your grade is AA");
+        }
+        else if(Average >= 80) {
+       	 System.out.println("your grade is AB");
+       }
+        else if(Average >= 70) {
+      	 System.out.println("your grade is BB");
+      }
+        else if(Average >= 60) {
+       	 System.out.println("your grade is BC");
+       }
+        else if(Average >= 50) {
+       	 System.out.println("your grade is CC");
+       }
+        else if(Average >= 40) {
+       	 System.out.println("your grade is CD");
+       }
+        else if(Average >= 30) {
+       	 System.out.println("your grade is DD");
+       }
+        else {
+       	 System.out.println("your grade is FF");
+       }
+        
+        sc.close();
+    }
+    
+}
