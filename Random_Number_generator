@@ -1,0 +1,71 @@
+package Number_game;
+
+import java.util.Random;
+import java.util.Scanner;
+// create class game and generate constructor
+
+class Game {
+	
+	public int number;
+	public int InputNumber;
+	public int noOfGuesses = 0;
+	
+	// getter and setter method for noOfGuesses
+	public int getNoOfGuesses() {
+		return noOfGuesses;
+	}
+	
+	public void SetNoOfGuesses(int noOfGuesses) {
+		this.noOfGuesses = noOfGuesses;
+	}
+	
+	
+	
+	
+	 Game() {
+		//create random num class for generate random num
+		Random rand = new Random();
+		this.number=rand.nextInt(100);//provide int 
+	}
+	
+	// take user function to take I/P  of num
+	void TakeUserInput() {
+		System.out.println("Enter the Number for Guess :- ");
+		Scanner scan = new Scanner(System.in);
+		InputNumber = scan.nextInt(); // take input num
+		
+
+	}
+	
+	// create a isCorectNumber function for check user entered num is true
+	boolean isCorrectNumber() {
+		noOfGuesses++;
+		if(InputNumber==number) {
+			System.out.format("You passed it right, it was %d\nYou Guesses it in %d attempts", number, noOfGuesses);
+			return true;
+		}
+		else if(InputNumber<number) {
+			System.out.println("Less number");
+		}
+		else if(InputNumber>number){
+			System.out.println("High number");
+		}
+		return false;
+	}
+}
+public class Example {
+
+	public static void main(String[] args) {
+		
+		// create a game class
+		Game g = new Game();
+		//take number again & again when give result
+		boolean b = false ;
+		while(!b) {
+		g.TakeUserInput();// take i/p num
+		b = g.isCorrectNumber();
+		
+		}
+	}
+
+}
